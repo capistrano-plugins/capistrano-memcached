@@ -1,6 +1,6 @@
-# Capistrano::UnicornNginx
+# Capistrano::Memcached
 
-Capistrano tasks for automatic and memcached configuraion.
+Capistrano tasks for automatic memcached configuration.
 
 Goals of this plugin:
 
@@ -49,6 +49,9 @@ plugin and don't think about it.
 To setup the memcached server run:
 
     $ bundle exec cap production setup
+    
+This will generate the memcached.conf and a memcached.yml file with the hostname + port
+where memcached is running. This can be used to configure Dalli, for example.
 
 ### Configuration
 
