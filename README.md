@@ -17,7 +17,7 @@ see below for all available tasks
 `capistrano-memcached` works only with Capistrano 3!
 
 This project was heavily inspired (i.e. copied and reworked) by 
-[capistrano-nginx-unicorn](https://github.com/bruno-/capistrano-nginx-unicorn).
+[capistrano-nginx-unicorn](https://github.com/bruno-/capistrano-nginx-unicorn) and [capistrano-recipes](https://github.com/mattdbridges/capistrano-recipes).
 
 ### Installation
 
