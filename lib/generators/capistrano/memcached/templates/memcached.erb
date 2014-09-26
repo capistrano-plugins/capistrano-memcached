@@ -1,0 +1,15 @@
+# run as a daemon
+-d
+
+logfile <%= fetch(:memcached_log_file) %>
+
+# memory limit
+-m <%= fetch(:memcached_memory_limit) %>
+
+# port
+-p <%= fetch(:memcached_port) %>
+
+# user
+-u <%= fetch(:memcached_user) %>
+
+-l <%= fetch(:memcached_ip) %>
