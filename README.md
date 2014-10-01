@@ -103,7 +103,8 @@ You can also provide path, where to generate templates:
 
     
 ### TODO
-* SASL authentication setup for memcached when running on multiple servers. 
+* Configure memcached server and clients for distributed setup.
+* SASL authentication setup for memcached when running on multiple servers.
     
 ### More Capistrano automation?
 
