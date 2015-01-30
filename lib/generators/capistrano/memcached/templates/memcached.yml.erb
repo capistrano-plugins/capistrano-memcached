@@ -1,2 +1,9 @@
 <%= fetch(:stage) %>:
-  host: '127.0.0.1:11211'
+  host:
+  <% if fetch(:memcached_ip) == :all %>
+    <% roles(fetch(:memcached_roles)).each do |role| %>
+    - '<%= role.hostname %>:<%= fetch(:memcached_port)%>'
+    <% end %>
+  <% else %>
+    '<%=fetch(:memcached_ip)%>:<%=fetch(:memcached_port)%>'
+  <% end %>

@@ -77,7 +77,9 @@ Location of memcached log file.
 The port memcached listens on.
 
 * `set :memcached_ip, "127.0.0.1" # default listen only on localhost (for security) `<br/>
-The IP memcached listens on.
+The IP memcached listens on. If set to `:all`, memcached will listen on all IP addresses.
+This parameter is one of the only security measures that memcached has, so make sure
+it's listening on a firewalled interface.
 
 * `set :memcached_roles, [:app]`<br/>
 The roles on which memcached will be installed. `memcached.yml` will be available to all :app roles.
