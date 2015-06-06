@@ -14,7 +14,6 @@ namespace :load do
     # this is where memcached will be installed. A handy memcached.yml file will be created on all :app roles in
     # shared/config
     set :memcached_roles, [:app]
-    set :memcached_client_roles, [:app]
     set :memcached_user, "memcache"
 
     set :memcached_app_config, -> { memcached_default_app_config_file }
@@ -43,16 +42,14 @@ namespace :memcached do
 
   desc 'Setup Memcached app configuration'
   task :setup_app_config do
-    on roles fetch(:memcached_client_roles) do
+    on release_roles :all do
       execute :mkdir, '-pv', File.dirname(fetch(:memcached_app_config))
       upload! mem_template('memcached.yml.erb'), fetch(:memcached_app_config)
     end
   end
 
   task :memcached_yml_symlink do
-    on roles fetch(:memcached_client_roles) do
-      set :linked_files, fetch(:linked_files, []).push("config/memcached.yml")
-    end
+    set :linked_files, fetch(:linked_files, []).push("config/memcached.yml")
   end
   before 'deploy:symlink:linked_files', 'memcached:memcached_yml_symlink'
 end
